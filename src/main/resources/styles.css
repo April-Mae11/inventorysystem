@@ -1,0 +1,399 @@
+/* Main Application Styles - Red Diamond Professional Theme */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: #f8f9fa;
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1px 1px 0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+
+.table-view .column-header:hover {
+    -fx-background-color: #81818100;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #d0cfcf29;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(176, 176, 176, 0.285); /* transparent selection */
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: black; 
+}
+
+/* Button Styles - Red Diamond Theme */
+.button {
+    -fx-background-color: #a70104; /* primary */
+    -fx-text-fill: white;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: #7f0000;
+    -fx-border-width: 1px;
+}
+
+.button:hover {
+    -fx-background-color: #7f0000;
+    -fx-border-color: #5c0000;
+}
+
+.button:pressed {
+    -fx-background-color: #5c0000;
+    -fx-border-color: #3e0000;
+}
+
+.button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666666;
+}
+
+/* Success Button - Green Diamond Theme */
+.button.success {
+    -fx-background-color: #a70104; /* keep success aligned to primary red for theme */
+    -fx-border-color: #7f0000;
+}
+
+.button.success:hover {
+    -fx-background-color: #7f0000;
+    -fx-border-color: #5c0000;
+}
+
+/* Danger Button - centralized red used across views */
+.button.danger {
+    -fx-background-color: #e74c3c; 
+    -fx-border-color: #c62828;
+}
+
+.button.danger:hover {
+    -fx-background-color: #c62828;
+    -fx-border-color: #b71c1c;
+}
+
+/* Warning Button - Green Diamond Theme */
+.button.warning {
+    -fx-background-color: #FF9800;
+    -fx-border-color: #F57C00;
+}
+
+.button.warning:hover {
+    -fx-background-color: #F57C00;
+    -fx-border-color: #E65100;
+}
+
+/* Neutral button (used for tertiary actions like About) */
+.button.neutral {
+    -fx-background-color: #95a5a6; /* gray */
+    -fx-text-fill: white;
+    -fx-border-color: #7f8c8d;
+}
+
+.button.neutral:hover {
+    -fx-background-color: #7f8c8d;
+    -fx-border-color: #636e72;
+}
+
+/* POS Dashboard specific buttons */
+.button.pos-checkout {
+    -fx-background-color: #d9534f; 
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #b52b2b;
+}
+.button.pos-checkout:hover {
+    -fx-background-color: #c12f2f;
+    -fx-border-color: #9b1f1f;
+}
+
+.button.pos-add {
+    -fx-background-color: #3b82f6; 
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #2563eb;
+}
+.button.pos-add:hover {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #1d4ed8;
+}
+
+.button.pos-remove {
+    -fx-background-color: #d9534f; 
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #b52b2b;
+}
+.button.pos-remove:hover {
+    -fx-background-color: #c12f2f;
+    -fx-border-color: #9b1f1f;
+}
+
+.button.pos-back {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.button.pos-back:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+
+.text-field, .text-area {
+    -fx-border-color: #a70104;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-color: white;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #7f0000;
+    -fx-border-width: 2px;
+}
+
+.combo-box {
+    -fx-border-color: #a70104;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-color: white;
+}
+
+.combo-box:focused {
+    -fx-border-color: #7f0000;
+    -fx-border-width: 2px;
+}
+
+
+.spinner {
+    -fx-border-color: #a70104;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.spinner:focused {
+    -fx-border-color: #1b5e1b;
+    -fx-border-width: 2px;
+}
+
+.check-box {
+    -fx-text-fill: #333333;
+}
+
+.check-box .box {
+    -fx-border-color: #a70104;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-color: white;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #a70104;
+}
+
+.label {
+    -fx-text-fill: #333333;
+}
+
+.label.title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #a70104;
+}
+
+/* Large UI helper class: apply to root containers for improved readability */
+.large-ui {
+    -fx-font-size: 14px; /* bump base font */
+}
+
+.large-ui .table-view {
+    -fx-font-size: 13px; /* larger table text */
+}
+
+.large-ui .table-view .column-header {
+    -fx-font-size: 13px;
+}
+
+.label.subtitle {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
+
+.label.success {
+    -fx-text-fill: #a70104;
+    -fx-font-weight: bold;
+}
+
+.label.warning {
+    -fx-text-fill: #F57C00;
+    -fx-font-weight: bold;
+}
+
+.label.error {
+    -fx-text-fill: #D32F2F;
+    -fx-font-weight: bold;
+}
+
+/* Menu Styles */
+.menu-bar {
+    -fx-background-color: #fafafa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.menu, .menu-item {
+    /* Make menu text match toolbar button size.*/
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+/* Ensure toolbar buttons that belong to manager/headproduction roles use white text */
+.button.manager, .button.headproduction {
+    -fx-text-fill: white;
+}
+
+/* Header title: ensure dashboard headers are white across views */
+.header-title {
+    -fx-text-fill: white;
+}
+
+.menu:hover, .menu:focused {
+    -fx-background-color: #eeeeee;
+}
+
+.menu-item:hover, .menu-item:focused {
+    -fx-background-color: #e3f2fd;
+}
+
+/* ToolBar Styles */
+.tool-bar {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-spacing: 5px;
+    -fx-padding: 8px;
+}
+
+/* Separator Styles */
+.separator {
+    -fx-background-color: #e0e0e0;
+}
+
+/* ScrollBar Styles */
+.scroll-bar {
+    -fx-background-color: #f5f5f5;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #aaaaaa;
+}
+
+/* Alert Dialog Styles */
+.alert.information .header-panel {
+    -fx-background-color: #e3f2fd;
+}
+
+.alert.warning .header-panel {
+    -fx-background-color: #fff3e0;
+}
+
+.alert.error .header-panel {
+    -fx-background-color: #ffebee;
+}
+
+.alert.confirmation .header-panel {
+    -fx-background-color: #e8f5e8;
+}
+
+/* Status Bar Styles */
+.status-bar {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 8px;
+}
+
+/* Form Styles */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+}
+
+.form-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+    -fx-padding: 0 0 15px 0;
+}
+
+/* Low Stock Indicator */
+.low-stock-row {
+    -fx-background-color: #ffebee !important;
+}
+
+.low-stock-text {
+    -fx-text-fill: #da952cff ;
+    -fx-font-weight: bold;
+}
+
+/* Normal Stock Indicator */
+.normal-stock-text {
+    -fx-text-fill: #2e7d32 ;
+    -fx-font-weight: bold ;
+}
+
+/* Status cell classes (used by table cell factory) */
+.status-out {
+    -fx-background-color: #ffebee; /* light red */
+    -fx-text-fill: #c62828; /* dark red */
+    -fx-font-weight: bold;
+}
+
+.status-low {
+    -fx-background-color: #fde6c2ff; /* light amber */
+    -fx-text-fill: #da952cff; 
+    -fx-font-weight: bold;
+}
+
+.status-normal {
+    -fx-background-color: #e8f5e8; /* light green */
+    -fx-text-fill: #2e7d32; /* light/medium green for normal stock */
+    -fx-font-weight: bold;
+}
+
+/* Label class for displaying monetary totals in green */
+.label.total-value {
+    -fx-text-fill: #1b5e1b; /* dark green */
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(167,1,4,0.18), 2, 0, 0, 1);
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused, .spinner:focused {
+    -fx-effect: dropshadow(gaussian, rgba(167,1,4,0.18), 2, 0, 0, 1);
+}

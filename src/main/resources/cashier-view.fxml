@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nva.printing.inventory.roles.CashierController" styleClass="large-ui">
+   <top>
+      <VBox spacing="10.0">
+         <children>
+            <!-- Header Section -->
+            <HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #a70104; -fx-padding: 20;">
+               <children>
+                  <Label text="NVA Printing Services - Cashier Dashboard" textFill="WHITE" styleClass="header-title">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            
+            <!-- Overview button moved into filter controls below -->
+            
+            <!-- Action Buttons -->
+            <HBox spacing="10.0" style="-fx-padding: 10;">
+               <children>
+                  <Button fx:id="useItemButton" mnemonicParsing="false" onAction="#handleUseItem" styleClass="danger" text="Order" />
+                  <Button fx:id="viewArchiveButton" mnemonicParsing="false" onAction="#handleViewArchive" styleClass="success" text="View Archive" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" styleClass="warning" text="Refresh" />
+                     <Button fx:id="stockInButton" mnemonicParsing="false" onAction="#handleStockIn" styleClass="danger" text="Stock In" />
+                  <Button fx:id="stockOutButton" mnemonicParsing="false" onAction="#handleStockOut" styleClass="warning" text="Stock Out" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" styleClass="danger" text="Logout" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   
+   <center>
+      <VBox spacing="10.0">
+         <children>
+            <!-- Statistics Panel -->
+            <HBox spacing="20.0" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 5;">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="Total Items" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+                        <Label fx:id="totalItemsLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="Low Stock Items" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+                        <Label fx:id="lowStockItemsLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="Total Value" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+                        <Label fx:id="totalValueLabel" text="₱0.00" styleClass="total-value" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="Total Item Quantity" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+                        <Label fx:id="totalQuantityLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #3498db;" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            
+            <!-- Filter Controls -->
+            <HBox spacing="10.0" style="-fx-padding: 10;">
+               <children>
+                  <Label text="Search:" />
+                  <TextField fx:id="searchField" promptText="Search items..." />
+                  <Label text="Category:" />
+                  <ComboBox fx:id="categoryFilter" prefWidth="150.0" promptText="All Categories" />
+                  <CheckBox fx:id="lowStockFilter" text="Show Low Stock Only" />
+                  <CheckBox fx:id="outOfStockFilter" text="Out of Stock Only" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="overviewButton" mnemonicParsing="false" onAction="#handleOpenOverview" styleClass="danger" text="Overview" />
+                  <Button mnemonicParsing="false" onAction="#handleClearFilters" styleClass="neutral" text="Clear Filters" />
+               </children>
+            </HBox>
+            
+            <!-- Inventory Table -->
+            <TableView fx:id="inventoryTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="120.0" text="Category" />
+                  <TableColumn fx:id="descriptionColumn" prefWidth="200.0" text="Description" />
+                  <TableColumn fx:id="quantityColumn" prefWidth="80.0" text="Quantity" />
+                  <TableColumn fx:id="minStockColumn" prefWidth="90.0" text="Min Stock" />
+                  <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Unit Price" />
+                  <TableColumn fx:id="supplierColumn" prefWidth="150.0" text="Supplier" />
+                  <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   
+   <bottom>
+   <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #a70104;">
+         <children>
+            <Label fx:id="userInfoLabel" text="Logged in as: Cashier (CASHIER)" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <!-- Time label for cashier to know current time -->
+            <Label fx:id="timeLabel" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Button mnemonicParsing="false" onAction="#handleAbout" styleClass="neutral" text="About" />
+            <Button mnemonicParsing="false" onAction="#handleExit" styleClass="danger" text="Exit" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

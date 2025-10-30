@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nva.printing.inventory.roles.TransactionHistoryController">
+    <top>
+        <VBox>
+            <HBox alignment="CENTER" style="-fx-background-color: #a70104;">
+                <children>
+                    <Label text="Transaction History" style="-fx-font-size: 24px; -fx-padding: 16px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                </children>
+            </HBox>
+            <HBox spacing="10.0" style="-fx-padding: 10;">
+                <children>
+                    <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+                    <Button fx:id="clearHistoryButton" mnemonicParsing="false" onAction="#handleClearHistory" text="Clear All History" />
+                    <Region HBox.hgrow="ALWAYS" />
+                </children>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="transactionTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="dateColumn" text="Date" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="itemColumn" text="Item Name" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="typeColumn" text="Type" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="quantityColumn" text="Quantity" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="userColumn" text="User" style="-fx-alignment: CENTER;" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+    </center>
+</BorderPane>

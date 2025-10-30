@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nva.printing.inventory.ItemFormController">
+   <children>
+   <!-- Header -->
+   <HBox alignment="CENTER" style="-fx-background-color: #a70104; -fx-padding: 15;">
+         <children>
+            <Label fx:id="titleLabel" text="Add New Item" textFill="WHITE" styleClass="header-title">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      
+      <!-- Form -->
+      <GridPane hgap="10.0" vgap="15.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="120.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="250.0" prefWidth="300.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <!-- Item Name -->
+            <Label text="Item Name:" GridPane.rowIndex="0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" promptText="Enter item name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            
+            <!-- Category -->
+            <Label text="Category:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="1" spacing="8.0">
+               <children>
+                  <ComboBox fx:id="categoryComboBox" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" promptText="Select or enter category" />
+                  <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#handleAddCategory" text="+" prefWidth="34.0" />
+                  <Button fx:id="removeCategoryButton" mnemonicParsing="false" onAction="#handleRemoveCategory" text="-" prefWidth="34.0" />
+               </children>
+            </HBox>
+            
+            <!-- Description -->
+            <Label text="Description:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descriptionArea" maxHeight="80.0" prefHeight="80.0" promptText="Enter item description (optional)" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            
+            <!-- Quantity -->
+            <Label text="Quantity:" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="quantitySpinner" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            
+            <!-- Minimum Stock -->
+            <Label text="Min Stock Level:" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="minStockSpinner" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            
+            <!-- Unit Price -->
+            <Label text="Unit Price (₱):" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="priceField" promptText="0.00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            
+            <!-- Supplier -->
+            <Label text="Supplier:" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="6" spacing="8.0">
+               <children>
+                  <ComboBox fx:id="supplierComboBox" editable="true" HBox.hgrow="ALWAYS" promptText="Select or enter supplier" />
+                  <Button fx:id="addSupplierButton" mnemonicParsing="false" onAction="#handleAddSupplier" text="+" prefWidth="34.0" />
+                  <Button fx:id="removeSupplierButton" mnemonicParsing="false" onAction="#handleRemoveSupplier" text="-" prefWidth="34.0" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </GridPane>
+      
+      <!-- Buttons -->
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <children>
+            <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" prefWidth="80.0" text="Cancel" styleClass="button" />
+            <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onAction="#handleSave" prefWidth="80.0" styleClass="danger" text="Save" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

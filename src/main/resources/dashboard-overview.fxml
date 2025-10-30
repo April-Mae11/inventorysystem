@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nva.printing.inventory.DashboardController" spacing="10" style="-fx-padding: 12;">
+    <children>
+        <!-- Header: centered, bold, slightly taller -->
+        <HBox alignment="CENTER" spacing="12" style="-fx-background-color: #a70104; -fx-padding: 18 8 18 8;" prefHeight="64">
+            <children>
+                <Label text="NVA Printing Services | POS Overview" textFill="WHITE" style="-fx-font-size:20; -fx-font-weight: bold;" />
+            </children>
+        </HBox>
+
+        <HBox spacing="12">
+            <children>
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+
+        <HBox spacing="12">
+            <children>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Total Items" />
+                        <Label fx:id="totalItemsLabel" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #1976D2;" text="0" />
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Low Stock Items" />
+                        <!-- MenuButton will show first low-stock item and dropdown lists all low-stock items -->
+                        <MenuButton fx:id="lowStockMenu" style="-fx-font-size: 14; -fx-padding: 6; -fx-text-fill: #c62828;" text="0 items" />
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Payments Today" />
+                        <HBox spacing="8">
+                            <children>
+                                <Label fx:id="paymentsCashLabel" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #2e7d32;" text="Cash: ₱0.00" />
+                                <Label text=" | " style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+                                <Label fx:id="paymentsGcashLabel" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #1976D2;" text="GCash: ₱0.00" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Items Sold" />
+                        <Label fx:id="itemsSoldLabel" style="-fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Total Inventory Value" />
+                        <Label fx:id="totalValueLabel" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2e7d32;" text="₱0.00" />
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Total Revenue" />
+                        <Label fx:id="totalRevenueLabel" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #198754;" text="₱0.00" />
+                    </children>
+                </VBox>
+                <VBox spacing="6" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-radius: 4; -fx-background-radius: 4;">
+                    <children>
+                        <Label text="Total Item Quantity" />
+                        <Label fx:id="totalQuantityLabel" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1976D2;" text="0" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <children>
+                <Label text="Recent Transactions" style="-fx-font-weight: bold; -fx-padding: 4 0 4 0;" />
+                <Button fx:id="refreshButton" mnemonicParsing="false" text="Refresh" />
+                <Button fx:id="exportTxnButton" mnemonicParsing="false" text="Export Transactions" onAction="#handleExportTransactions" />
+            </children>
+        </HBox>
+        <TableView fx:id="transactionsTable" prefHeight="600" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="transactionIdColumn" text="Reference Number" prefWidth="140" />
+                <TableColumn fx:id="itemColumn" text="Item" prefWidth="320" />
+                    <TableColumn fx:id="unitPriceColumn" text="Unit Price" prefWidth="100" />
+                    <TableColumn fx:id="qtyColumn" text="Qty" prefWidth="60" />
+                    <TableColumn fx:id="totalPriceColumn" text="Total Price" prefWidth="100" />
+                    <TableColumn fx:id="typeColumn" text="Payment Method" prefWidth="120" />
+                <TableColumn fx:id="dateColumn" text="Date / Time" prefWidth="160" />
+            </columns>
+</TableView>
+            <HBox spacing="10" style="-fx-padding: 12 12 12 12; -fx-background-color: #a70104;" alignment="CENTER_LEFT" prefHeight="56" minHeight="48">
+                <children>
+                    <Button fx:id="clearRecentButton" mnemonicParsing="false" onAction="#handleClearRecentTransactions" text="Clear Recent Transactions" />
+                    <Label fx:id="footerText" text="© NVA Printing Services" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <!-- Right-aligned footer time -->
+                    <Label fx:id="footerTime" text="" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 0 8 0 8;" />
+                </children>
+            </HBox>
+        </children>
+    <padding>
+        <Insets top="8" right="8" bottom="8" left="8" />
+    </padding>
+</VBox>
